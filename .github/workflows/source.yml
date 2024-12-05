@@ -1,0 +1,24 @@
+name: Push Source
+
+on:
+  workflow_dispatch:
+
+jobs:
+  push-file:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: clone source
+        run: wget "source url here"
+
+      - name: unzip
+        run: unzip source.zip
+       
+      - name: Commit and push
+        run: |
+          git config --local user.name "abhiram79"
+          git config --local user.email "abhiramv670@gmail.com"
+          git add .
+          git commit -m "initial commit for Micro.gms.core"
+          git push origin main
